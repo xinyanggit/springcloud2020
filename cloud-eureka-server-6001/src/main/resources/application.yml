@@ -1,0 +1,15 @@
+## springboot 配置文件
+## eureka注册中心 服务端
+server:
+  port: 6001
+spring:
+  application:
+    name: cloud-eureka-server
+eureka:
+  instance:
+    hostname: eureka6001.com
+  client:
+    register-with-eureka: false # 自己不用注入
+    fetch-registry: false # 服务端不用获取清单列表
+    service-url:
+       defaultZone:  http://eureka6002.com:6002/eureka/

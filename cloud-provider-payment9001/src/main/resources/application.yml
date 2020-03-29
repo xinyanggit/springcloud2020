@@ -1,0 +1,34 @@
+## springboot 配置文件
+
+server:
+  port: 9001
+spring:
+  application:
+    name: cloud-provider-payment
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  #当前数据源操作类型
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springcloud?characterEncoding=utf8&useSSL=false&useUnicode=true
+    username: springcloud
+    password: springcloud
+
+## mybatis 配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.yx.springcloud.payment.entity  #所有entity别名所在包
+
+## eureka相关配置
+eureka:
+  client:
+    service-url: ## 集群版本
+      defaultZone:  http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
+    fetch-registry: true # 读取eureka列表清单
+    register-with-eureka: true #向 eureka 进行注册
+  instance:
+    prefer-ip-address: true  #访问路径可以显示ip 地址
+    instance-id: cloud-provider-payment-9001 #eureka端显示的列表名称
+    #eureaka 客户端在收到最后一次后等待时间上限。 默认90s ,超时剔除服务
+    lease-expiration-duration-in-seconds: 10
+    # eureka 向服务端发送心跳的时间。默认30s
+    lease-renewal-interval-in-seconds: 30
+
