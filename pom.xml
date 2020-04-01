@@ -16,6 +16,8 @@
     <module>cloud-eureka-server-6001</module>
       <module>cloud-eureka-server-6002</module>
       <module>cloud-provider-payment9002</module>
+    <module>cloud-provider-zk-payment9003</module>
+      <module>cloud-consumer-zk-order90</module>
   </modules>
 
   <!-- 打包 pom 父工程 -->
