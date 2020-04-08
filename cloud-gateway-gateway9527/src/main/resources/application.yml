@@ -1,0 +1,38 @@
+server:
+  port: 9527
+## eureka相关配置
+eureka:
+  client:
+    service-url: ## 集群版本
+      defaultZone:  http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
+    fetch-registry: true # 读取eureka列表清单
+    register-with-eureka: true #向 eureka 进行注册
+  instance:
+    prefer-ip-address: true  #访问路径可以显示ip 地址
+    instance-id: cloud-gateway-9527 #eureka端显示的列表名称
+    #eureaka 客户端在收到最后一次后等待时间上限。 默认90s ,超时剔除服务
+    lease-expiration-duration-in-seconds: 10
+    # eureka 向服务端发送心跳的时间。默认30s
+    lease-renewal-interval-in-seconds: 30
+
+spring:
+  application:
+    name: cloud-gateway-gateway9527
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 开启从注册中心动态创建路由的功能，利用微服务名称进行路由
+      routes:
+        - id: payment_route # 路由的id,没有规定规则但要求唯一,建议配合服务名
+          #匹配后提供服务的路由地址 更对断言可以参考官网 https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.1.RELEASE/reference/html/#gateway-request-predicates-factories
+          #uri: http://localhost:8001
+          uri: lb://cloud-provider-payment
+          predicates:
+            - Path=/payment/get/** # 断言，路径相匹配的进行路由
+        - id: payment_route2
+          #uri: http://localhost:8001
+          uri: lb://cloud-provider-payment
+          predicates:
+            - Path=/payment/lb/** #断言,路径相匹配的进行路由
+            - After=2020-04-08T18:50:08.182+08:00[Asia/Shanghai]

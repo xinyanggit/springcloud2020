@@ -60,7 +60,10 @@ public class PaymentController {
         return serverPort +"time_Oout";
     }
 
-
+    @GetMapping(value ="/lb")
+    public String getPaymentLB(){
+        return serverPort;
+    }
 
 
 

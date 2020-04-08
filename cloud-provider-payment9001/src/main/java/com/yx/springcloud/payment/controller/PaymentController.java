@@ -80,6 +80,7 @@ public class PaymentController {
         return serverPort + "ok";
     }
 
+
     @GetMapping("/time_out")
     public String  timeOut() {
         try {
@@ -88,6 +89,11 @@ public class PaymentController {
             e.printStackTrace();
         }
         return serverPort +"time_Oout";
+    }
+
+    @GetMapping(value ="/lb")
+    public String getPaymentLB(){
+        return serverPort;
     }
 
 

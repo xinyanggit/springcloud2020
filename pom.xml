@@ -22,6 +22,7 @@
         <module>cloud-provider-hystrix-payment9004</module>
         <module>cloud-consumer-feign-hystrix-order90</module>
         <module>cloud-consumer-hystrix-dashboard5001</module>
+        <module>cloud-gateway-gateway9527</module>
     </modules>
 
     <!-- 打包 pom 父工程 -->
