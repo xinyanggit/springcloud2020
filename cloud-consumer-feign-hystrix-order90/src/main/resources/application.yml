@@ -1,0 +1,23 @@
+## springboot 配置文件
+
+server:
+  port: 90
+spring:
+  application:
+    name: cloud-consumer-feign-hystrix-order90
+
+eureka:
+  client:
+    service-url: ## 集群版本
+      defaultZone:  http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
+    fetch-registry: true # 读取eureka列表清单
+    register-with-eureka: true #向 eureka 进行注册
+
+feign: ## 启动feign对hystrix支持
+  hystrix:
+    enabled: true
+#日志级别打印
+logging:
+  level:
+    # feign日志以什么级别监控哪个接口
+    com.yx.springcloud.service.PaymentHystrixService: debug

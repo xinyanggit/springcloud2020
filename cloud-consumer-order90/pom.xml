@@ -13,6 +13,13 @@
     <description>消费者信息</description>
 
     <dependencies>
+
+        <!-- 引入hystrix 服务降级熔断  -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+
     <!--web启动器-->
     <dependency>
         <groupId>org.springframework.boot</groupId>

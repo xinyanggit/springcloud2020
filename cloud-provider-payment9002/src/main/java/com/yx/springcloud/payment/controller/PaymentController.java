@@ -43,6 +43,23 @@ public class PaymentController {
         return new CommonResult(200,"查询成功,serverPort"+serverPort,payment);
     }
 
+    /***** 测试openFeign超时策略 **/
+
+    @GetMapping("/time_ok")
+    public String  timeOk() {
+        return serverPort + "ok";
+    }
+
+    @GetMapping("/time_out")
+    public String  timeOut() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPort +"time_Oout";
+    }
+
 
 
 

@@ -1,0 +1,15 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: cloud-provider-hystrix-payment
+## eureka相关配置
+eureka:
+  client:
+    service-url: ## 集群版本
+      defaultZone:  http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+
+

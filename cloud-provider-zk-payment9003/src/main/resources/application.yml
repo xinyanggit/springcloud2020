@@ -7,5 +7,5 @@ spring:
     name: cloud-provider-zk-payment
   cloud:
     zookeeper:
-      # 默认localhost:2181
+      # 默认localhost:2181 . 需要搭建zk服务端
       connect-string: localhost:2181

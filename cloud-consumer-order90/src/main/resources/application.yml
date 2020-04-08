@@ -12,3 +12,4 @@ eureka:
       defaultZone:  http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
     fetch-registry: true # 读取eureka列表清单
     register-with-eureka: true #向 eureka 进行注册
+

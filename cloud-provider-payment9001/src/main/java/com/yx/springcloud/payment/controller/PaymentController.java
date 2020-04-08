@@ -74,4 +74,21 @@ public class PaymentController {
         return discoveryClient;
     }
 
+
+    @GetMapping("/time_ok")
+    public String  timeOk() {
+        return serverPort + "ok";
+    }
+
+    @GetMapping("/time_out")
+    public String  timeOut() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPort +"time_Oout";
+    }
+
+
 }
