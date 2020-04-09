@@ -29,6 +29,9 @@
         <module>cloud-stream-rabbitmq-provider8801</module>
         <module>cloud-stream-rabbitmq-consumer8002</module>
         <module>cloud-stream-rabbitmq-consumer8003</module>
+        <module>cloud-alibaba-provider-payment4001</module>
+        <module>cloud-alibaba-provider.payment4002</module>
+        <module>cloud-alibaba-config-client-3456</module>
     </modules>
 
     <!-- 打包 pom 父工程 -->
