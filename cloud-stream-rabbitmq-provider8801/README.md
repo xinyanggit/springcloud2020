@@ -1,5 +1,16 @@
 spring Cloud Stream 核心操作
 
+1、cloud stream 
+屏蔽底层消息中间件的细节，
+
+官网https://spring.io/projects/spring-cloud-stream
+springcloud steam 框架-->是一个构建消息驱动微服务的框架
+Binder与消息中间键交互。屏蔽底层
+
+Binder中间层，实现了应用程序和消息中间件细节之间的隔离
+
+pub-sub 消息订阅和发布
+
 middleware:中间件，目前只支持RabbitMQ 和 Kafaka
 Binder:binder是应用与消息中间件之间的封装，目前实行了kafaka与rabbitmq的Binder
 @input : 注解标识输入通道，通过该输入通道接收的消息进入应用程序。消费者
