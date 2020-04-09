@@ -26,6 +26,9 @@
         <module>cloud-config-center-3000</module>
         <module>cloud-config-client-3355</module>
         <module>cloud-config-client-3366</module>
+        <module>cloud-stream-rabbitmq-provider8801</module>
+        <module>cloud-stream-rabbitmq-consumer8002</module>
+        <module>cloud-stream-rabbitmq-consumer8003</module>
     </modules>
 
     <!-- 打包 pom 父工程 -->
