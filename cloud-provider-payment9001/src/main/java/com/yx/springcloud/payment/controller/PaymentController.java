@@ -46,6 +46,14 @@ public class PaymentController {
         return new CommonResult(200, "查询成功,serverPort" + serverPort, payment);
     }
 
+    @GetMapping("/zipkin")
+    public String zipkin() {
+        return   " this is  zipkin " ;
+    }
+
+
+
+
 
     @Resource
     private DiscoveryClient discoveryClient;
