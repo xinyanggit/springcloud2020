@@ -1,0 +1,35 @@
+## springboot 配置文件
+
+server:
+  port: 3000
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/xinyanggit/springcloud-config-yx.git
+          search-paths:
+            - test   # 指定那个目录下进行搜索
+      # 指定分支
+      label: master
+  rabbitmq: #mq相关配置。实现对center进行刷新
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    service-url: ## 集群版本
+      defaultZone:  http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
+    fetch-registry: true # 读取eureka列表清单
+    register-with-eureka: true #向 eureka 进行注册
+
+# rabbitmq相关配置，暴露bus刷新点。
+management:
+  endpoints: #暴露bus刷新配置的端点
+    web:
+      exposure:
+        include: 'bus-refresh'

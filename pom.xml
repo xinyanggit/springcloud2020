@@ -23,6 +23,9 @@
         <module>cloud-consumer-feign-hystrix-order90</module>
         <module>cloud-consumer-hystrix-dashboard5001</module>
         <module>cloud-gateway-gateway9527</module>
+        <module>cloud-config-center-3000</module>
+        <module>cloud-config-client-3355</module>
+        <module>cloud-config-client-3366</module>
     </modules>
 
     <!-- 打包 pom 父工程 -->

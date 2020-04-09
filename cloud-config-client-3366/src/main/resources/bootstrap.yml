@@ -1,0 +1,28 @@
+server:
+  port: 3366
+spring:
+  application:
+    name: config-client3366
+  cloud:
+    config:
+      label: master #分支名称
+      name: application #配置文件名称
+      profile: dev #读取后缀文件名，即 master分支application-dev.yml
+      uri: http://localhost:3000 #自己定义配置中心地址
+  rabbitmq: #mq相关配置
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone:  http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
+#暴露监控端点，供刷新使用
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
