@@ -28,3 +28,5 @@ curl -X POST  "http://localhost:3000/actuator/bus-refresh/{destination}".
 比如： 仅仅更新config-client3355 配置
 curl -X POST  "http://localhost:3000/actuator/bus-refresh/config-client3355:3355"
 
+bus官网
+[https://cloud.spring.io/spring-cloud-static/spring-cloud-bus/2.2.1.RELEASE/reference/html/appendix.html][官网]
