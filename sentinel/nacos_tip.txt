@@ -1,0 +1,12 @@
+哨兵监控
+sentinel 启动
+java -jar sent...
+访问： localhost:8080/
+
+
+服务注册和配置和bus
+nacos
+
+http://localhost:8848/nacos/#/login
+
+nacos持久化https://nacos.io/zh-cn/docs/deployment.html

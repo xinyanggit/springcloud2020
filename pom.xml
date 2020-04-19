@@ -32,6 +32,10 @@
         <module>cloud-alibaba-provider-payment4001</module>
         <module>cloud-alibaba-provider.payment4002</module>
         <module>cloud-alibaba-config-client-3456</module>
+        <module>cloud-alibaba-sentinel-service8849</module>
+        <module>cloud-alibaba-nacos-sentinel-provider-5001</module>
+        <module>cloud-alibaba-nacos-sentinel-provider-5002</module>
+        <module>cloud-alibaba-nacos-sentinel-custom-50</module>
     </modules>
 
     <!-- 打包 pom 父工程 -->

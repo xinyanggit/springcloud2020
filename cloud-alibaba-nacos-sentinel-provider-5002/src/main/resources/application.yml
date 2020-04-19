@@ -1,0 +1,22 @@
+## 注册进入nacos , sentinel 监控
+server:
+  port: 5002
+
+spring:
+  application:
+    name: cloud-alibaba-nacos-provider
+  cloud:
+    nacos:
+      config:
+        server-addr:  127.0.0.1:8848
+    sentinel: # 进行监控 限流 降级等
+      transport:
+        dashboard: 127.0.0.1:8080
+        port: 8719 # 默认8719，会自动从8719 一次加1 启动
+
+# 暴漏端口，供刷新
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
