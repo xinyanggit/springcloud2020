@@ -1,0 +1,25 @@
+server:
+  port: 7901
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: seata-model-1
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: iris_tx_group
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  #当前数据源操作类型
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/seata_t1?characterEncoding=utf8&useSSL=false&useUnicode=true
+    username: root
+    password: root
+
+## mybatis 配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

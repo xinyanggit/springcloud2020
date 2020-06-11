@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yx.springcloud.dao.TableDao">
+
+    <insert id="createTable">
+        insert into test2(id, name)
+        values (#{id}, #{name})
+    </insert>
+    <update id="update">
+        update test2 t
+        set t.name = #{name}
+        where id = #{id}
+    </update>
+</mapper>
