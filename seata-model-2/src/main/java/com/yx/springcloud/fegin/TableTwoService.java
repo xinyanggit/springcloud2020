@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author yx start
  * @create 2020/6/11,20:14
  */
-@FeignClient(value = "seata-model-2")
 public interface TableTwoService {
     /**
      * 创建用户

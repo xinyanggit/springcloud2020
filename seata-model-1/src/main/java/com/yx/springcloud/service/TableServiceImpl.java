@@ -5,8 +5,10 @@ import com.yx.springcloud.fegin.TableOneService;
 import com.yx.springcloud.fegin.TableTwoService;
 import com.yx.springcloud.fegin.TableThreeService;
 import com.yx.springcloud.vo.TableVO;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -33,7 +35,8 @@ public class TableServiceImpl implements TableOneService {
     private TableThreeService tableThreeService;
 
 
-
+   // @Transactional(rollbackFor = Exception.class)
+    @GlobalTransactional(name="test-yx",rollbackFor = Exception.class)
     @Override
     public void createTable(TableVO tableVO) {
         log.info("创建test1数据==start");

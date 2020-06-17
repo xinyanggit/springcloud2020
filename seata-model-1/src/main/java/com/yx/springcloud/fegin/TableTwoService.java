@@ -4,6 +4,8 @@ import com.yx.springcloud.payment.entity.CommonResult;
 import com.yx.springcloud.vo.TableVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * @author yx start
@@ -16,8 +18,8 @@ public interface TableTwoService {
      *
      * @param tableVO
      */
-    @GetMapping("/create")
-    CommonResult createTable(TableVO tableVO);
+    @PostMapping("/create")
+    CommonResult createTable(@RequestBody  TableVO tableVO);
 
     /**
      * 修改数据

@@ -23,6 +23,11 @@ public class TableServiceImpl implements TableThreeService {
     @Override
     public CommonResult createTable(TableVO tableVO) {
         log.info("model3==创建test3数据==start");
+       /* try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
         tableDao.createTable(tableVO);
         return new CommonResult(200, "success");
     }

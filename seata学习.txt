@@ -1,0 +1,66 @@
+Seata 三要素
+
+RM 资源管理者
+TC 事务协调者
+TM 事务管理者
+
+提供四种模式： AT、TCC、SAGA 和 XA 事务模式
+我这里用的是 seata 1.0.0版本
+最详细
+http://seata.io/zh-cn/docs/ops/deploy-guide-beginner.html
+
+1.下载服务端seata-server
+https://github.com/seata/seata/releases 
+ docker 安装
+ docker run --name seata-server -p 8091:8091 seataio/seata-server:latest
+ 设置docker aliyun镜像源
+https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors?accounttraceid=a7753a76580345a8a712aad64f18a100ucca
+
+2、修改对应服务端
+-- 自定义事务组名称+事务日志存储为db+数据库连接信息 
+
+ 自定义事务组  文件 file.conf--> service--> vgroup_mapping.my_test_tx_group 
+ 事务日志存储为db 文件 file.conf -> store.model =db
+ 数据库连接信息 配置修改  file.conf -> store.db 修改为自己的信息 
+     url = "jdbc:mysql://127.0.0.1:3306/seata"
+     user = "root"
+     password = "root"
+服务端需要的db
+ 我们需要新建seata数据库
+ https://github.com/seata/seata/edit/1.0.0/script/server/db/mysql.sql
+
+ 客户端需要的db
+https://github.com/seata/seata/blob/1.0.0/script/client/at/db/mysql.sql
+
+==修改注册中心 文件==>registry.conf 修改两处： nacos 和nacos对应的配置
+
+
+
+3、springcloud 对应的seata版本说明
+https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E 版本对应
+
+4、启动nocas ,后启动seata  注意端口是否冲突
+windwos 启动 ： 到所在目录， cmd -->seata-server.bat -p 18091
+
+
+5、编码模块
+ 需要引入seata 的 gav 
+         <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.seata</groupId>
+                    <artifactId>seata-all</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-all</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        
+区别:
+@Transational
+@GlobalTransational

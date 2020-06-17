@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  * @author yx start
  * @create 2020/6/11,20:09
  */
-@Service("tableOneService")
+@Service("tableTwoService")
 @Slf4j
 public class TableServiceImpl implements TableTwoService {
     @Resource

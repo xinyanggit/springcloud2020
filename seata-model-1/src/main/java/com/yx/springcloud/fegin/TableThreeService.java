@@ -3,6 +3,9 @@ package com.yx.springcloud.fegin;
 import com.yx.springcloud.vo.TableVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * @author yx start
@@ -15,8 +18,8 @@ public interface TableThreeService {
      *
      * @param tableVO
      */
-    @GetMapping("/create")
-    void createTable(TableVO tableVO);
+    @PostMapping("/create")
+    void createTable( @RequestBody  TableVO tableVO);
 
     /**
      * 修改数据

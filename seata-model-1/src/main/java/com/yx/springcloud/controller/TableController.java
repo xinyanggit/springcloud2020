@@ -1,9 +1,9 @@
 package com.yx.springcloud.controller;
 
 import com.yx.springcloud.fegin.TableOneService;
+import com.yx.springcloud.payment.entity.CommonResult;
 import com.yx.springcloud.vo.TableVO;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -23,8 +23,8 @@ public class TableController {
      * @param tableVO
      */
     @GetMapping("/create")
-    public void create(TableVO tableVO){
-
+    public CommonResult create(TableVO tableVO){
         tableOneService.createTable(tableVO);
+        return new CommonResult(200,"success");
     }
 }
